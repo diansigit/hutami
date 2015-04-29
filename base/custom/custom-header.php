@@ -17,7 +17,8 @@ $font_color = theme_options('sidebar', 'font_color');
 	$font_size_large  = theme_options('content', 'font_size_large');
 ?>
 
-var home_url = '<?php echo home_url(); ?>/';
+var home_url = '<?php echo home_url(); ?>/',
+	ajax_url = '<?php echo home_url()."/wp-admin/admin-ajax.php"; ?>';
 var font_size_small = <?php echo $font_size_normal; ?>,
 	line_height_small = <?php echo ($font_size_normal+4); ?>,
 	font_size_medium = <?php echo $font_size_medium; ?>,

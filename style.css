@@ -29,6 +29,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * 6.0 - Navigations
  *   6.1 - Links
  *   6.2 - Menus
+ *   6.3 - Pagination
  * 7.0 - Accessibility
  * 8.0 - Alignments
  * 9.0 - Clearings
@@ -786,6 +787,14 @@ a:focus{
     background-color:  #026466 }
 .soc-nav-menu li a[href*="youtube.com"] .back-label {
     background-color:  #c4302b;
+}
+
+/**
+ * 6.2 Pagination
+ */
+.navigation.pagination{
+  padding: 15px 10px;
+  text-align: center;
 }
 
 /**

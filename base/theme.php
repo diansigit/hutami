@@ -117,6 +117,7 @@ class Theme {
 		require_once( THEME_FUNCTIONS_DIR . '/aq_resizer.php' );
 		require_once( THEME_FUNCTIONS_DIR . '/general.php' );
 		require_once( THEME_FUNCTIONS_DIR . '/theme-items.php' );
+		require_once( THEME_FUNCTIONS_DIR . '/theme-ajax.php' );
 		require_once( THEME_FUNCTIONS_DIR . '/walker.php' );
 	}
 

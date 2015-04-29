@@ -21,8 +21,8 @@
 
 	<?php else : ?>
         
-    	<title><?php wp_title( '|', true, 'right' ); ?></title>
-   		<meta name="description" content="<?php bloginfo('description'); ?>">
+    	<title><?php bloginfo( 'name' ); ?><?php wp_title( '|', true, 'left' ); ?></title>
+  		<meta name="description" content="<?php bloginfo('description'); ?>">
     
     <?php endif; ?>
 

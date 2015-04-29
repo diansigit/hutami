@@ -1,11 +1,7 @@
 /**
-
- * @package Fuchsimmobilien
-
- * @subpackage Fuchsimmobilien Theme
-
- * @since Fuchsimmobilien Theme 1.0
-
+ * @package Hutami
+ * @subpackage Hutami Theme
+ * @since Hutami Theme 1.0
  */
 
 (function($){
@@ -86,6 +82,23 @@
 	   			}
 	   		});
 	   	},
+	   	loadLatestNews: function(page_number){
+	   		$.ajax({
+	   			url: ajax_url,
+	   			type: 'POST',
+	   			ddata: 'action=latest_news_load_infinite&page_no="'+ page_number,
+	   		})
+	   		.done(function() {
+	   			console.log("success");
+	   		})
+	   		.fail(function() {
+	   			console.log("error");
+	   		})
+	   		.always(function() {
+	   			console.log("complete");
+	   		});
+	   		return false;
+	   	},
 		environment: {
 			isAndroid: function() {
 				return navigator.userAgent.match(/Android/i);
@@ -147,6 +160,7 @@
 	var App = window.App = {
 		init: function(){
 			App.generalBindings();
+			App.initInfiniteScroll();
 			App.initSticky();
 			App.initBackToTop();
 		},
@@ -165,6 +179,26 @@
 
 			// Text Sizer
 			Util.textSizer();
+		},
+		initInfiniteScroll: function(){
+			var page = 1,
+				$content = $('#latest-content');
+			if($content.length){
+				$(window).scroll(function(){
+	                if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+	                    page ++;
+	                    //$('#infscr-loading').removeClass('is-hidden');
+	                    $.ajax({
+				   			url: ajax_url,
+				   			type: 'POST',
+				   			data: 'action=post_infinite_scroll&page_no='+page,
+				   			success: function(response){
+					   			$content.append(response);
+				   			}
+				   		});
+	                }
+	            }); 
+	        }
 		},
 		initPrealoader: function(){
 			// Preloader

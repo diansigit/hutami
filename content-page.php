@@ -8,14 +8,23 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('content-single'); ?>>
 	<?php
 		// Post thumbnail.
-		twentyfifteen_post_thumbnail();
+		$feature_image = theme_get_image(get_post_thumbnail_id(), '858', '595', true);
 	?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<figure class="figure-header">
+			<?php if (!empty($feature_image)) : ?>
+			<div class="meta-image">
+				<img src="<?php echo $feature_image; ?>" alt="<?php the_title(); ?>">
+			</div>
+			<?php endif; ?>
+			<figcaption>
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			</figcaption>
+		</figure>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

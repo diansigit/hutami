@@ -22,7 +22,27 @@
 			<section class="home-content">
 				<div class="row">
 					<div class="col-xs-12 col-md-6">
-						<?php theme_latest_news(); ?>
+						<div class="latest-news panel">
+							<h2 class="panel-title">
+								<?php echo theme_options('home', 'latest_title'); ?> Latest Article
+							</h2>
+							<div id="latest-content" class="panel-content">
+								<?php 
+									$args = array(
+										'post_type'		=> 'post',
+										'post_status' 	=> 'publish',
+									);
+
+									query_posts($args);
+									if (have_posts()) : 
+										while (have_posts()) : the_post();
+										get_template_part( 'content', 'infinite' );
+										endwhile;
+									endif;
+									wp_reset_query();
+								?>
+							</div>
+						</div>
 					</div>
 					<div class="col-xs-12 col-md-6">
 						<div class="row">

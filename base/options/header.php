@@ -137,7 +137,7 @@
 	$config = array(
 		'title' 		=> __('Header', 'theme_admin'),
 		'group_id' 		=> 'header',
-		'active_first' 	=> false
+		'active_first' 	=> true
 	);
 	
 	

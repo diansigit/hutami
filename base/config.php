@@ -59,12 +59,12 @@ $theme_config = array(
 
 	// Theme Options
 	'theme_options' => array(
-		'appearance'=> __('Appearance', 'theme_admin'),
+		//'appearance'=> __('Appearance', 'theme_admin'),
 		'header'	=> __('Header', 'theme_admin'),
 		'content'	=> __('Content', 'theme_admin'),
 		'footer' 	=> __('Footer', 'theme_admin'),
-		'font'		=> __('Font', 'theme_admin'),
-		'home'		=> __('Home', 'theme_admin')
+		//'font'		=> __('Font', 'theme_admin'),
+		//'home'		=> __('Home', 'theme_admin')
 	),
 	
 );
